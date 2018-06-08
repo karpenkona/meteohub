@@ -4,4 +4,16 @@ block content
 
     .row
         .col-sm-12.col-md-8.col-lg-7.fixed
+            if prognoz
+                //p #{prognoz[0]}
+                - var w = JSON.parse(prognoz);
+                p #{w.list[0].dt}
+                p #{w.list[1].dt}
+                each item in w.list
+                    - var hh = new Date(item.dt);
+                    p на время #{hh.getHours()} -- Т: #{item.main.temp}
+
+
+    .row
+        .col-sm-12.col-md-8.col-lg-7.fixed
             p.top-of-day &kcy;&acy;&rcy;&tcy;&icy;&ncy;&acy; &dcy;&ncy;&yacy;
