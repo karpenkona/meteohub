@@ -36,7 +36,7 @@ request(options2)
         //console.log(response);
         var w = JSON.parse(response);
         console.log('Получено значений: '+w.list.length);
-        console.log(w.list[0]);
+        console.log(w);
         console.log(w.list[1]);
     })
     .catch(function (err) {

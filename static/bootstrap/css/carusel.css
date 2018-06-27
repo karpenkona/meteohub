@@ -108,6 +108,12 @@ offerid {
 
 }
 
+.wether-icon {
+    float:left;
+    height: 16;
+    width: 16;
+
+}
 img.site-icon {
     float:left;
     height: 16px;

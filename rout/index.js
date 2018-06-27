@@ -52,5 +52,28 @@ router.get('/', function (req, res) {
         })
 
 })
+router.get('/:id', function (req, res) {
+    var id=req.params.id;
+    try {
+        fs.readFile('sity/'+id+'.json', 'utf8', function (err, data) {
+            if (err) res.send('no find Sity');
+            if (!err){
+                obj = JSON.parse(data);
+                console.log(obj.length);
+
+
+                console.log( obj.length );
+                res.send(data);
+            }
+
+
+        })
+    }
+    catch (err) {
+        res.send(err);
+    }
+
+
+} )
 
 module.exports = router;
