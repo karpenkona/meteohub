@@ -75,5 +75,43 @@ router.get('/:id', function (req, res) {
 
 
 } )
+router.get('/:id/test', function (req, res) {
+    var id=req.params.id;
+    try {
+        fs.readFile('sity/'+id+'.json', 'utf8', function (err, data) {
+            if (err) res.send('no find Sity');
+            if (!err){
+                obj = JSON.parse(data);
+                console.log(obj.length);
+
+
+                console.log( obj.length );
+                try {
+                    fs.readFile('file.txt', 'utf8', function (er, SityList) {
+                        if (er) res.send('no find list sity');
+                        if (!er){
+                            var s = JSON.parse(SityList);;
+                            res.render('sity', {data: data, sity: id, sitylist: s });
+                        }
+
+                    })
+                }
+                catch (err){
+                    res.send(err);
+                }
+
+
+            }
+
+
+        })
+    }
+    catch (err) {
+        res.send(err);
+    }
+
+
+} )
+
 
 module.exports = router;
